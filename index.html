@@ -1,0 +1,1372 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#fff0f5">
+
+    <title>Un lugar para nosotros ❤️</title>
+
+    <style>
+        :root {
+            --rosa: #ff6b91;
+            --rosa-claro: #ffe1eb;
+            --rosa-fondo: #fff5f8;
+            --rojo: #c9184a;
+            --vino: #7b1835;
+            --blanco: #ffffff;
+            --texto: #623544;
+            --sombra: 0 12px 35px rgba(190, 54, 95, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Georgia, "Times New Roman", serif;
+            background: var(--rosa-fondo);
+            color: var(--texto);
+            overflow-x: hidden;
+            line-height: 1.8;
+        }
+
+        section {
+            padding: 75px 20px;
+            text-align: center;
+        }
+
+        h1, h2, h3 {
+            color: var(--rojo);
+            line-height: 1.35;
+        }
+
+        p {
+            font-size: 1.05rem;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .subtitulo {
+            margin-top: 12px;
+            margin-bottom: 35px;
+            color: #966274;
+        }
+
+        .separador {
+            width: 100px;
+            height: 3px;
+            background: var(--rosa);
+            border-radius: 20px;
+            margin: 22px auto;
+        }
+
+        /* PORTADA E INICIALES */
+
+        .portada {
+            min-height: 100svh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 50px 20px;
+            background:
+                radial-gradient(circle at top left, #ffe0eb, transparent 40%),
+                radial-gradient(circle at bottom right, #ffc4d6, transparent 40%),
+                linear-gradient(135deg, #fff7fa, #ffe5ee);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .etiqueta {
+            letter-spacing: 4px;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            color: #b64b6c;
+            margin-bottom: 22px;
+        }
+
+        .corazon-iniciales {
+            width: 220px;
+            height: 200px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: latido 1.8s infinite;
+            margin: 20px 0 30px;
+        }
+
+        .corazon-iniciales::before {
+            content: "♥";
+            position: absolute;
+            font-size: 220px;
+            color: var(--rosa);
+            filter: drop-shadow(0 15px 15px #e77a9a66);
+            line-height: 1;
+        }
+
+        .iniciales {
+            position: relative;
+            z-index: 2;
+            color: white;
+            font-size: 2.4rem;
+            font-weight: bold;
+            text-shadow: 0 3px 10px #a92b5066;
+            margin-top: 15px;
+        }
+
+        .portada h1 {
+            font-size: clamp(2.1rem, 7vw, 4rem);
+            max-width: 800px;
+            margin-bottom: 15px;
+        }
+
+        .portada p {
+            max-width: 650px;
+            color: #875365;
+        }
+
+        .boton {
+            display: inline-block;
+            margin-top: 28px;
+            padding: 14px 30px;
+            border: none;
+            border-radius: 40px;
+            background: linear-gradient(135deg, #ff7398, #e93c70);
+            color: white;
+            text-decoration: none;
+            font-family: inherit;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 7px 20px #e93c7033;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        .boton:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 25px #e93c7055;
+        }
+
+        .indicador {
+            margin-top: 45px;
+            font-size: 0.9rem;
+            color: #aa6278;
+        }
+
+        @keyframes latido {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+        }
+
+        /* CORAZONES FLOTANTES */
+
+        .corazones-fondo {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 10;
+        }
+
+        .corazon-flotante {
+            position: absolute;
+            bottom: -50px;
+            color: #ff8eae;
+            opacity: 0.35;
+            animation: flotar 12s linear infinite;
+        }
+
+        @keyframes flotar {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            15% { opacity: 0.4; }
+            85% { opacity: 0.35; }
+
+            100% {
+                transform: translateY(-115vh) rotate(40deg);
+                opacity: 0;
+            }
+        }
+
+        /* LA PREGUNTA */
+
+        .pregunta {
+            background: white;
+        }
+
+        .pregunta h2 {
+            font-size: clamp(2rem, 6vw, 3.4rem);
+            margin-bottom: 15px;
+        }
+
+        .pregunta-texto {
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .botones-respuesta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .boton-si,
+        .boton-pensar {
+            padding: 14px 26px;
+            border-radius: 35px;
+            border: none;
+            font-family: inherit;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: 0.25s;
+        }
+
+        .boton-si {
+            background: #e83e70;
+            color: white;
+        }
+
+        .boton-pensar {
+            background: #fff0f5;
+            color: #a83a5e;
+            border: 1px solid #ffd0df;
+        }
+
+        .boton-si:hover,
+        .boton-pensar:hover {
+            transform: scale(1.05);
+        }
+
+        #respuesta {
+            min-height: 65px;
+            margin: 25px auto 0;
+            max-width: 750px;
+            color: var(--rojo);
+            font-size: 1.15rem;
+            font-weight: bold;
+            overflow-wrap: anywhere;
+        }
+
+        /* GALERÍA DE CINCO FOTOS */
+
+        .galeria {
+            background: linear-gradient(180deg, #fff5f8, #ffe7ef);
+            overflow: hidden;
+        }
+
+        .galeria h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+        }
+
+        .galeria-descripcion {
+            max-width: 650px;
+            margin: 0 auto 35px;
+        }
+
+        .galeria-corazon {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.25fr 1fr;
+            grid-template-rows: 220px 300px 220px;
+            gap: 18px;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .foto {
+            width: 100%;
+            height: 100%;
+            max-width: 260px;
+            background: white;
+            padding: 9px 9px 15px;
+            border-radius: 15px;
+            box-shadow: var(--sombra);
+            transition: transform 0.35s;
+            overflow: hidden;
+        }
+
+        .foto:hover {
+            transform: translateY(-7px) rotate(0deg) scale(1.025);
+            z-index: 2;
+        }
+
+        .foto img {
+            width: 100%;
+            height: calc(100% - 30px);
+            object-fit: cover;
+            border-radius: 9px;
+            display: block;
+        }
+
+        .foto figcaption {
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.82rem;
+            color: #a54c68;
+        }
+
+        .foto-1 {
+            grid-column: 1;
+            grid-row: 1;
+            transform: rotate(-5deg);
+        }
+
+        .foto-2 {
+            grid-column: 3;
+            grid-row: 1;
+            transform: rotate(5deg);
+        }
+
+        .foto-3 {
+            grid-column: 1;
+            grid-row: 3;
+            transform: rotate(5deg);
+        }
+
+        .foto-4 {
+            grid-column: 3;
+            grid-row: 3;
+            transform: rotate(-5deg);
+        }
+
+        .foto-principal {
+            grid-column: 2;
+            grid-row: 1 / 4;
+            width: 100%;
+            max-width: 420px;
+            height: auto;
+            background: transparent;
+            padding: 0;
+            box-shadow: none;
+            overflow: visible;
+            filter: drop-shadow(0 12px 18px #c94a7250);
+        }
+
+        .foto-principal svg {
+            width: 100%;
+            height: auto;
+            display: block;
+            overflow: visible;
+        }
+
+        .foto-principal figcaption {
+            font-size: 1rem;
+            font-weight: bold;
+            height: 38px;
+        }
+
+        .someday {
+            font-size: clamp(2.5rem, 7vw, 4rem);
+            font-weight: bold;
+            color: var(--rojo);
+            margin-top: 25px;
+            letter-spacing: 2px;
+        }
+
+        .someday-frase {
+            color: #9c5d71;
+            font-style: italic;
+        }
+
+        /* DEDICATORIA */
+
+        .dedicatoria {
+            background: #fff;
+        }
+
+        .dedicatoria h2 {
+            font-size: clamp(2rem, 6vw, 3.3rem);
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .dedicatoria-corazon {
+            font-size: 3.5rem;
+            display: inline-block;
+            animation: latido 1.5s infinite;
+            margin-bottom: 15px;
+        }
+
+        .carta {
+            max-width: 780px;
+            margin: 35px auto 0;
+            padding: 35px;
+            background: #fff5f8;
+            border: 1px solid #ffdae5;
+            border-radius: 22px;
+            box-shadow: var(--sombra);
+            text-align: left;
+        }
+
+        .carta p {
+            margin-bottom: 18px;
+        }
+
+        .firma {
+            color: var(--rojo);
+            font-size: 1.25rem;
+            text-align: right;
+            font-style: italic;
+        }
+
+        /* SIGNIFICADO DEL ROMANCE */
+
+        .romance {
+            background: linear-gradient(135deg, #ffe6ef, #fff7fa);
+        }
+
+        .romance h2,
+        .lenguaje h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+        }
+
+        .texto-romance {
+            max-width: 850px;
+            margin: 25px auto;
+            font-size: 1.12rem;
+        }
+
+        .frase-destacada {
+            max-width: 780px;
+            margin: 35px auto 0;
+            padding: 25px;
+            border-left: 4px solid var(--rosa);
+            border-radius: 0 18px 18px 0;
+            background: #ffffffb8;
+            font-style: italic;
+            font-size: 1.15rem;
+        }
+
+        /* LENGUAJE DEL AMOR */
+
+        .lenguaje {
+            background: white;
+        }
+
+        .tarjetas {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+            margin-top: 35px;
+            text-align: left;
+        }
+
+        .tarjeta {
+            padding: 28px;
+            background: #fff6f9;
+            border: 1px solid #ffdeea;
+            border-radius: 20px;
+            transition: transform 0.3s;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-5px);
+        }
+
+        .tarjeta .icono {
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+        }
+
+        .tarjeta h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .tarjeta p {
+            font-size: 1rem;
+        }
+
+        /* PROMESAS */
+
+        .promesas {
+            background: linear-gradient(180deg, #fff0f5, #ffe2ec);
+        }
+
+        .lista-promesas {
+            max-width: 750px;
+            margin: 30px auto 0;
+            text-align: left;
+        }
+
+        .promesa {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin: 18px 0;
+            padding: 18px;
+            background: #ffffffb8;
+            border-radius: 15px;
+        }
+
+        .promesa span {
+            font-size: 1.5rem;
+        }
+
+        /* CIERRE */
+
+        .final {
+            min-height: 75vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background:
+                radial-gradient(circle at top, #ffd6e4, transparent 55%),
+                linear-gradient(135deg, #fff6fa, #ffdfeb);
+        }
+
+        .final h2 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+        }
+
+        .final p {
+            max-width: 700px;
+            margin: 15px auto;
+        }
+
+        .final-corazon {
+            font-size: 5rem;
+            animation: latido 1.5s infinite;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px 15px;
+            color: #a76a7f;
+            background: #fff;
+            font-size: 0.9rem;
+        }
+
+        /* ADAPTACIÓN PARA CELULARES */
+
+        @media (max-width: 650px) {
+            section {
+                padding: 55px 16px;
+            }
+
+            .portada {
+                min-height: 92svh;
+            }
+
+            .corazon-iniciales {
+                transform: scale(0.85);
+                margin: 0;
+            }
+
+            .galeria-corazon {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 150px auto 150px;
+                gap: 12px;
+            }
+
+            .foto {
+                max-width: none;
+                min-width: 0;
+                padding: 6px 6px 10px;
+                border-radius: 10px;
+            }
+
+            .foto img {
+                border-radius: 6px;
+            }
+
+            .foto-1 {
+                grid-column: 1;
+                grid-row: 1;
+            }
+
+            .foto-2 {
+                grid-column: 2;
+                grid-row: 1;
+            }
+
+            .foto-principal {
+                grid-column: 1 / 3;
+                grid-row: 2;
+                width: 100%;
+                max-width: 360px;
+                padding: 0;
+            }
+
+            .foto-3 {
+                grid-column: 1;
+                grid-row: 3;
+            }
+
+            .foto-4 {
+                grid-column: 2;
+                grid-row: 3;
+            }
+
+            .tarjetas {
+                grid-template-columns: 1fr;
+            }
+
+            .carta {
+                padding: 24px 20px;
+            }
+
+            .foto figcaption {
+                font-size: 0.73rem;
+            }
+
+            .botones-respuesta {
+                flex-direction: column;
+            }
+
+            .boton-si,
+            .boton-pensar {
+                max-width: 100%;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="corazones-fondo" id="corazonesFondo"></div>
+
+    <!-- PORTADA -->
+
+    <header class="portada" id="inicio">
+
+        <div class="etiqueta">
+            Un pequeño universo para nosotros
+        </div>
+
+        <div class="corazon-iniciales">
+            <div class="iniciales">T &amp; A</div>
+        </div>
+
+        <h1>Una historia que quiero seguir escribiendo contigo</h1>
+
+        <div class="separador"></div>
+
+        <p>
+            Hay personas que llegan a nuestra vida y hacen que
+            los días tengan un significado diferente. Tú eres
+            esa persona con la que quiero compartir mis sonrisas,
+            mis sueños, mis silencios y cada uno de mis mañanas.
+        </p>
+
+        <a class="boton" href="#pregunta">
+            Tengo algo que preguntarte ❤️
+        </a>
+
+        <div class="indicador">
+            Hecho con amor, pensando en ti ↓
+        </div>
+
+    </header>
+
+
+    <!-- PREGUNTA -->
+
+    <section class="pregunta" id="pregunta">
+
+        <div class="container">
+
+            <div style="font-size: 3rem;">💌</div>
+
+            <h2>¿Puedo ser tu novio?</h2>
+
+            <div class="separador"></div>
+
+            <p class="pregunta-texto">
+                Quiero elegirte con el corazón, conocerte cada día
+                un poquito más, construir recuerdos contigo y
+                demostrarte que lo que siento por ti no se queda
+                solamente en palabras.
+            </p>
+
+            <p class="pregunta-texto" style="margin-top: 15px;">
+                Quiero que podamos crecer juntos, cuidarnos,
+                respetarnos y seguir descubriendo todo lo bonito
+                que podemos construir cuando estamos de la mano.
+            </p>
+
+            <div class="botones-respuesta">
+
+                <button class="boton-si" onclick="decirSi()">
+                    Sí, mi amor ❤️
+                </button>
+
+                <button class="boton-pensar" onclick="decirPensar()">
+                    Obviamente Siiiiiiii😍🥺
+                </button>
+
+            </div>
+
+            <div id="respuesta" aria-live="polite"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- GALERÍA DE CINCO FOTOGRAFÍAS -->
+
+    <section class="galeria" id="recuerdos">
+
+        <div class="container">
+
+            <h2>Nuestro pequeño mundo ❤️</h2>
+
+            <p class="subtitulo galeria-descripcion">
+                Cinco fotografías, cinco pedacitos de nuestra
+                historia y un corazón que guarda todo lo que
+                significas para mí.
+            </p>
+
+            <div class="galeria-corazon">
+
+                <figure class="foto foto-1">
+                    <img src="foto1.jpeg"
+                         alt="Un recuerdo bonito de nosotros"
+                         loading="lazy">
+                    <figcaption>Un recuerdo bonito ♡</figcaption>
+                </figure>
+
+                <figure class="foto foto-2">
+                    <img src="foto2.jpeg"
+                         alt="Un momento especial juntos"
+                         loading="lazy">
+                    <figcaption>Mi momento favorito ♡</figcaption>
+                </figure>
+
+                <!-- CORAZÓN GIGANTE CON FOTO CENTRAL -->
+
+                <figure class="foto-principal">
+
+                    <svg viewBox="0 0 500 460"
+                         role="img"
+                         aria-label="Nuestra foto dentro de un corazón">
+
+                        <defs>
+                            <clipPath id="recorteCorazon">
+                                <path d="
+                                    M250 425
+                                    C220 397, 35 270, 35 145
+                                    C35 70, 90 25, 155 25
+                                    C200 25, 235 52, 250 91
+                                    C265 52, 300 25, 345 25
+                                    C410 25, 465 70, 465 145
+                                    C465 270, 280 397, 250 425 Z
+                                "/>
+                            </clipPath>
+                        </defs>
+
+                        <image href="foto-principal.jpeg"
+                               x="0" y="0"
+                               width="500" height="460"
+                               preserveAspectRatio="xMidYMid slice"
+                               clip-path="url(#recorteCorazon)"/>
+
+                        <path d="
+                            M250 425
+                            C220 397, 35 270, 35 145
+                            C35 70, 90 25, 155 25
+                            C200 25, 235 52, 250 91
+                            C265 52, 300 25, 345 25
+                            C410 25, 465 70, 465 145
+                            C465 270, 280 397, 250 425 Z
+                        "
+                        fill="none"
+                        stroke="#ff7199"
+                        stroke-width="7"
+                        stroke-linejoin="round"/>
+
+                    </svg>
+
+                    <figcaption>
+                        Mi lugar favorito es contigo ❤️
+                    </figcaption>
+
+                </figure>
+
+                <figure class="foto foto-3">
+                    <img src="foto3.jpeg"
+                         alt="Otro recuerdo de nuestra historia"
+                         loading="lazy">
+                    <figcaption>Un instante nuestro ♡</figcaption>
+                </figure>
+
+                <figure class="foto foto-4">
+                    <img src="foto4.jpeg"
+                         alt="Una fotografía especial juntos"
+                         loading="lazy">
+                    <figcaption>Contigo todo es especial ♡</figcaption>
+                </figure>
+
+            </div>
+
+            <div class="someday">Someday❤️</div>
+
+            <p class="someday-frase">
+                Por todos los días que todavía nos quedan
+                por soñar, vivir y recordar.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- DEDICATORIA -->
+
+    <section class="dedicatoria" id="dedicatoria">
+
+        <div class="container">
+
+            <div class="dedicatoria-corazon">♥</div>
+
+            <h2>
+                Te Amo Mucho Muchísimo Mi Dulce Esposa
+            </h2>
+
+            <div class="separador"></div>
+
+            <p class="subtitulo">
+                Si pudiera convertir mis sentimientos en algo
+                que pudieras ver, entenderías por qué te elijo.
+            </p>
+
+            <div class="carta">
+
+                <p>Mi dulce, hermosa y amada esposa:</p>
+
+                <p>
+                    A veces siento que las palabras se quedan
+                    pequeñas para explicar todo lo que llevo
+                    dentro de mi corazón. Decirte que te amo
+                    es bonito, pero para mí amarte también
+                    significa querer conocerte en tus días
+                    buenos y en aquellos en los que el mundo
+                    parezca demasiado difícil.
+                </p>
+
+                <p>
+                    Quiero ser esa persona con la que puedas
+                    reírte por cualquier tontería, hablar durante
+                    horas de cualquier cosa y quedarte en silencio
+                    sin sentir que tienes que fingir que todo
+                    está bien.
+                </p>
+
+                <p>
+                    Quiero regalarte detalles que te recuerden
+                    lo especial que eres para mí, abrazarte
+                    cuando necesites tranquilidad, escucharte
+                    cuando quieras desahogarte y celebrar contigo
+                    cada pequeño logro, incluso los que el resto
+                    del mundo no llegue a comprender.
+                </p>
+
+                <p>
+                    No quiero que sientas que tienes que ser
+                    perfecta para merecer mi amor. Quiero que
+                    puedas ser tú misma conmigo, con tus alegrías,
+                    tus inseguridades, tus ocurrencias y todas
+                    esas pequeñas cosas que te hacen ser quien eres.
+                </p>
+
+                <p>
+                    Si algún día nos toca atravesar momentos
+                    complicados, quiero que recordemos que amar
+                    también es aprender, conversar, pedir perdón,
+                    respetar nuestros espacios y volver a
+                    encontrarnos desde el cariño.
+                </p>
+
+                <p>
+                    No puedo prometerte una vida sin dificultades,
+                    pero sí quiero esforzarme para que nuestro
+                    amor sea un lugar donde ambos podamos sentirnos
+                    escuchados, valorados y libres de ser nosotros.
+                </p>
+
+                <p>
+                    Y si me preguntaras por qué te amo tanto,
+                    probablemente terminaría hablándote de cientos
+                    de pequeños detalles, de momentos que quizá
+                    para ti parezcan sencillos y que para mí
+                    significan muchísimo.
+                </p>
+
+                <p>
+                    Porque no se trata solamente de tenerte a mi
+                    lado. Se trata de querer compartir contigo
+                    lo que soy, aprender de lo que somos y
+                    construir, paso a paso, aquello que soñamos.
+                </p>
+
+                <p>
+                    Te amo mucho, muchísimo, mi dulce esposa.
+                    Y hoy quería dejarte un pedacito de mi corazón
+                    en esta página, para que puedas volver a él
+                    cada vez que quieras recordar cuánto te amo.
+                </p>
+
+                <p class="firma">
+                    Con todo mi corazón, para ti. ❤️
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- QUÉ SIGNIFICA EL ROMANCE -->
+
+    <section class="romance" id="romance">
+
+        <div class="container">
+
+            <div style="font-size: 2.8rem;">🌹</div>
+
+            <h2>¿Qué significa el romance para mí?</h2>
+
+            <div class="separador"></div>
+
+            <p class="texto-romance">
+                Para mí, el romance no consiste únicamente
+                en flores, regalos costosos o palabras bonitas.
+                El romance es encontrar una manera de hacerte
+                sentir amada incluso en los momentos más sencillos.
+            </p>
+
+            <p class="texto-romance">
+                Es caminar contigo sin tener prisa por llegar
+                a ninguna parte. Es observar un atardecer y
+                pensar que sería aún más bonito si puedo
+                compartirlo contigo. Es guardar fotografías,
+                recordar conversaciones y sonreír por algo
+                que solamente nosotros entendemos.
+            </p>
+
+            <p class="texto-romance">
+                Es preparar una sorpresa porque me acordé de
+                algo que te gusta. Es escucharte con atención,
+                notar los pequeños detalles, abrazarte un
+                poquito más y buscar formas de recordarte
+                que no eres una persona más en mi vida.
+            </p>
+
+            <p class="texto-romance">
+                También es estar presente cuando no hay
+                fotografías bonitas que tomar ni momentos
+                perfectos que compartir. Es demostrarte cariño
+                cuando estás cansada, tener paciencia cuando
+                no encontramos las palabras y aprender a
+                entendernos sin dejar de ser nosotros mismos.
+            </p>
+
+            <div class="frase-destacada">
+                Para mí, el romance es convertir los momentos
+                ordinarios en recuerdos extraordinarios
+                simplemente porque los estoy viviendo contigo.
+                Es hacerte sentir que, entre todas las cosas
+                bonitas que existen en este mundo, compartir
+                mi tiempo, mis detalles y mi corazón contigo
+                siempre será una de mis favoritas. ❤️
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- MI LENGUAJE DEL AMOR -->
+
+    <section class="lenguaje" id="lenguaje">
+
+        <div class="container">
+
+            <div style="font-size: 2.8rem;">💗</div>
+
+            <h2>Mi lenguaje del amor</h2>
+
+            <p class="subtitulo">
+                Así es como me gusta demostrarte todo lo que siento.
+            </p>
+
+            <div class="tarjetas">
+
+                <article class="tarjeta">
+                    <div class="icono">🎁</div>
+                    <h3>Los detalles</h3>
+                    <p>
+                        Me gusta pensar en ti cuando veo algo
+                        que podría hacerte sonreír. No se trata
+                        de cuánto cuesta un regalo, sino de
+                        recordar tus gustos, preparar una sorpresa
+                        y demostrarte que incluso cuando no
+                        estás conmigo hay pequeñas cosas que
+                        me hacen pensar en ti.
+                    </p>
+                </article>
+
+                <article class="tarjeta">
+                    <div class="icono">🕰️</div>
+                    <h3>El tiempo de calidad</h3>
+                    <p>
+                        Quiero compartir contigo conversaciones
+                        largas, salidas sencillas, caminatas,
+                        risas, silencios cómodos y momentos en
+                        los que podamos olvidarnos un poquito
+                        de las preocupaciones para disfrutar
+                        de estar juntos.
+                    </p>
+                </article>
+
+                <article class="tarjeta">
+                    <div class="icono">💌</div>
+                    <h3>Las palabras</h3>
+                    <p>
+                        Me gusta decirte lo que siento, dedicarte
+                        palabras bonitas y recordarte por qué
+                        eres especial para mí. A veces puedo
+                        escribir mucho porque hay sentimientos
+                        que me cuesta resumir en una sola frase.
+                        Quiero que nunca tengas que adivinar
+                        si eres importante para mí.
+                    </p>
+                </article>
+
+                <article class="tarjeta">
+                    <div class="icono">🤍</div>
+                    <h3>El contacto y los abrazos</h3>
+                    <p>
+                        Para mí, un abrazo puede transmitir
+                        una tranquilidad que no siempre
+                        conseguimos explicar con palabras.
+                        Me gusta esa cercanía en la que podemos
+                        sentirnos cómodos, queridos y acompañados,
+                        siempre respetando cómo se siente cada uno.
+                    </p>
+                </article>
+
+                <article class="tarjeta">
+                    <div class="icono">🫶</div>
+                    <h3>Los actos de amor</h3>
+                    <p>
+                        Amar también es hacer cosas para que
+                        la persona que quieres se sienta cuidada:
+                        ayudarte cuando lo necesitas, tener
+                        presentes tus preocupaciones y demostrar
+                        con acciones que tus sentimientos y tu
+                        bienestar me importan.
+                    </p>
+                </article>
+
+                <article class="tarjeta">
+                    <div class="icono">🌷</div>
+                    <h3>La presencia sincera</h3>
+                    <p>
+                        No quiero estar contigo únicamente
+                        cuando todo es bonito y sencillo.
+                        Quiero aprender a escucharte, acompañarte
+                        en los días difíciles y construir una
+                        relación donde ambos podamos expresarnos
+                        con confianza, respeto y cariño.
+                    </p>
+                </article>
+
+            </div>
+
+            <div class="frase-destacada">
+                Mi manera de amar es poner un poquito de mi
+                corazón en los detalles, en las palabras, en
+                el tiempo que compartimos y en cada acción
+                que te recuerde que eres alguien muy especial
+                para mí. ❤️
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROMESAS -->
+
+    <section class="promesas" id="promesas">
+
+        <div class="container">
+
+            <h2>Lo que quiero construir contigo</h2>
+
+            <p class="subtitulo">
+                No son promesas de una vida perfecta,
+                sino intenciones que quiero convertir en acciones.
+            </p>
+
+            <div class="lista-promesas">
+
+                <div class="promesa">
+                    <span>❤️</span>
+                    <p>
+                        <strong>Elegirte con libertad.</strong>
+                        Quiero que estemos juntos porque ambos
+                        lo deseamos, porque nos hacemos bien
+                        y porque seguimos encontrando razones
+                        para compartir nuestro camino.
+                    </p>
+                </div>
+
+                <div class="promesa">
+                    <span>🌻</span>
+                    <p>
+                        <strong>Cuidar nuestra comunicación.</strong>
+                        Quiero escucharte sin minimizar lo que
+                        sientes y aprender a expresar también
+                        mis emociones con honestidad.
+                    </p>
+                </div>
+
+                <div class="promesa">
+                    <span>🌙</span>
+                    <p>
+                        <strong>Crear recuerdos inolvidables.</strong>
+                        Quiero que tengamos historias que
+                        algún día podamos recordar sonriendo:
+                        viajes, fotografías, conversaciones,
+                        atardeceres y pequeñas aventuras.
+                    </p>
+                </div>
+
+                <div class="promesa">
+                    <span>🕊️</span>
+                    <p>
+                        <strong>Respetar quiénes somos.</strong>
+                        Quiero que podamos crecer individualmente,
+                        perseguir nuestros sueños y acompañarnos
+                        sin que ninguno tenga que dejar de ser
+                        sí mismo para merecer amor.
+                    </p>
+                </div>
+
+                <div class="promesa">
+                    <span>💞</span>
+                    <p>
+                        <strong>Seguir demostrando mi cariño.</strong>
+                        Quiero recordar que el amor no se trata
+                        solamente de lo que sentimos, sino
+                        también de cómo nos tratamos cada día.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FINAL -->
+
+    <section class="final">
+
+        <div class="container">
+
+            <div class="final-corazon">❤️</div>
+
+            <h2>Someday</h2>
+
+            <div class="separador"></div>
+
+            <p>
+                Algún día miraremos atrás y recordaremos
+                todas las cosas que soñamos, las que logramos
+                y aquellas pequeñas aventuras que hicieron
+                nuestra historia única.
+            </p>
+
+            <p>
+                Y ojalá, cuando llegue ese día, podamos
+                sonreír al recordar que todo comenzó con
+                dos iniciales, un corazón y las ganas
+                sinceras de compartir algo bonito.
+            </p>
+
+            <p style="font-size: 1.35rem; color: #c9184a;">
+                T &amp; A — una historia que todavía
+                tiene mucho por escribir. ❤️
+            </p>
+
+            <a href="#inicio" class="boton"
+               onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
+                Volver a nuestro comienzo ↑
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+        Hecho con amor, paciencia y un corazón lleno de sueños. ❤️
+    </footer>
+
+
+    <!-- JAVASCRIPT: BOTONES Y ANIMACIONES -->
+
+    <script>
+
+        // PRIMER BOTÓN: SÍ, MI AMOR
+
+        function decirSi() {
+
+            const respuesta = document.getElementById("respuesta");
+
+            respuesta.textContent =
+                "¡SÍIIII, MI AMOOOOR! 😭❤️🥹 " +
+                "No sabes lo feliz que me hace poder llamarte mi novia. " +
+                "Quiero llenarte de amor, regalarte miles de sonrisas, " +
+                "crear recuerdos hermosos contigo y demostrarte cada día " +
+                "que elegirte es una de las cosas más bonitas que me ha pasado. " +
+                "TE AMO MUCHO MUCHÍSIMO, MI DULCE, HERMOSA Y AMADA ESPOSA. 💍💕";
+
+            lanzarCorazones(30);
+        }
+
+
+        // SEGUNDO BOTÓN: OBVIAMENTE SÍIIIIII
+
+        function decirPensar() {
+
+            const respuesta = document.getElementById("respuesta");
+
+            respuesta.textContent =
+                "¡AAAAAAAH, SABÍA QUE DIRÍAS QUE SÍIIII! 😭😍🥺❤️ " +
+                "VEN AQUÍ, MI AMOOOOR, QUE TE VOY A DAR EL ABRAZO " +
+                "MÁS BONITO DEL UNIVERSO. 🫂💕 " +
+                "No tienes idea de lo feliz que me haces. " +
+                "Si pudiera, te llenaría de besitos, te abrazaría " +
+                "muy fuerte y me quedaría contigo mientras te digo " +
+                "una y otra vez cuánto te amo. " +
+                "¡AHORA SÍ, OFICIALMENTE ERES MI NOVIA, MI DULCE ESPOSA! 💍❤️🥹";
+
+            lanzarCorazones(50);
+        }
+
+
+        // CORAZONES QUE FLOTAN POR TODA LA PÁGINA
+
+        const fondo = document.getElementById("corazonesFondo");
+
+        for (let i = 0; i < 18; i++) {
+
+            const corazon = document.createElement("span");
+
+            corazon.className = "corazon-flotante";
+            corazon.textContent = "♥";
+
+            corazon.style.left = Math.random() * 100 + "%";
+
+            corazon.style.animationDelay =
+                Math.random() * 12 + "s";
+
+            corazon.style.animationDuration =
+                (9 + Math.random() * 9) + "s";
+
+            corazon.style.fontSize =
+                (12 + Math.random() * 22) + "px";
+
+            fondo.appendChild(corazon);
+        }
+
+
+        // LLUVIA DE CORAZONES AL PULSAR CUALQUIER RESPUESTA
+
+        function lanzarCorazones(cantidad) {
+
+            for (let i = 0; i < cantidad; i++) {
+
+                const corazon = document.createElement("span");
+
+                const emojis = ["❤️", "💕", "💗", "💖", "💘"];
+
+                corazon.textContent =
+                    emojis[Math.floor(Math.random() * emojis.length)];
+
+                corazon.style.position = "fixed";
+                corazon.style.left = Math.random() * 100 + "vw";
+                corazon.style.top = "-30px";
+
+                corazon.style.fontSize =
+                    (16 + Math.random() * 24) + "px";
+
+                corazon.style.zIndex = "100";
+                corazon.style.pointerEvents = "none";
+
+                document.body.appendChild(corazon);
+
+                const duracion = 2500 + Math.random() * 2500;
+
+                const desplazamiento = 110 + Math.random() * 50;
+
+                corazon.animate(
+                    [
+                        {
+                            transform: "translateY(0) rotate(0deg)",
+                            opacity: 1
+                        },
+                        {
+                            transform:
+                                "translateY(" + desplazamiento + "vh) rotate(360deg)",
+                            opacity: 0
+                        }
+                    ],
+                    {
+                        duration: duracion,
+                        easing: "ease-in",
+                        fill: "forwards"
+                    }
+                );
+
+                setTimeout(function () {
+                    corazon.remove();
+                }, duracion + 100);
+            }
+        }
+
+    </script>
+
+</body>
+</html>
